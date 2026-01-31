@@ -163,6 +163,48 @@
         </div>
     </section>
 
+    <section id="claim-section" class="hidden max-w-4xl mx-auto px-6 py-20">
+        <div class="glass-card rounded-[50px] p-10 md:p-16 border border-iosPink/30 bg-pink-50/50 shadow-2xl shadow-pink-100">
+            <div class="flex items-center gap-4 mb-10">
+                <span class="text-4xl">🎁</span>
+                <h2 class="text-3xl font-extrabold tracking-tight italic text-iosPink uppercase">Cara Klaim Voucher</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <div class="p-6 bg-white/80 rounded-3xl shadow-sm border border-white">
+                    <p class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                        <span class="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center text-[10px]">1</span>
+                        Siapkan Kode
+                    </p>
+                    <p class="text-[11px] text-gray-500 italic leading-relaxed">Dapatkan kode unik dari event Twitter atau giveaway admin.</p>
+                </div>
+                <div class="p-6 bg-white/80 rounded-3xl shadow-sm border border-white">
+                    <p class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                        <span class="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center text-[10px]">2</span>
+                        Buka Bot
+                    </p>
+                    <p class="text-[11px] text-gray-500 italic leading-relaxed">Langsung chat ke bot resmi: <a href="https://t.me/jeketipmdl_bot" class="text-tgBlue font-bold underline">@jeketipmdl_bot</a>.</p>
+                </div>
+                <div class="p-6 bg-pink-600 rounded-3xl shadow-lg shadow-pink-200 border border-pink-400">
+                    <p class="font-bold text-white mb-2 flex items-center gap-2">
+                        <span class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-[10px]">3</span>
+                        Gunakan Perintah
+                    </p>
+                    <p class="text-[11px] text-white/90 italic leading-relaxed font-medium text-center bg-black/10 py-2 rounded-xl border border-white/20">
+                        Ketik: <code class="font-mono text-xs">/claim [kode_voucher]</code>
+                    </p>
+                    <p class="text-[10px] text-white/70 mt-2 text-center">*Contoh: /claim JKT48ABCDE</p>
+                </div>
+                <div class="p-6 bg-white/80 rounded-3xl shadow-sm border border-white">
+                    <p class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                        <span class="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center text-[10px]">4</span>
+                        Aktif Otomatis
+                    </p>
+                    <p class="text-[11px] text-gray-500 italic leading-relaxed">Selesai! Paket langganan kamu otomatis aktif.</p>
+                </div>
+            </div>
+        </div>
+        </section>
+
     <section class="max-w-4xl mx-auto px-6 py-10 text-center">
         <div class="glass-card rounded-[50px] p-10 md:p-16 border border-white">
             <h2 class="text-2xl font-extrabold mb-12 tracking-tight italic text-gray-800 uppercase">Metode Pembayaran</h2>
@@ -195,6 +237,19 @@
             Layanan ini hanya alat bantu simpan untuk keperluan koleksi pribadi.
         </p>
     </footer>
+
+    <script>
+        function handleVoucherAccess() {
+            if (window.location.hash === '#claim-voc') {
+                const claimSection = document.getElementById('claim-section');
+                claimSection.classList.remove('hidden');
+                claimSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        window.addEventListener('load', handleVoucherAccess);
+        window.addEventListener('hashchange', handleVoucherAccess);
+    </script>
 
 </body>
 </html>
