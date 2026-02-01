@@ -7,12 +7,17 @@
 
 <url>
   <loc>https://gemes.in/</loc>
-  <lastmod>2026-01-31T15:26:48+00:00</lastmod>
+  <lastmod>2026-02-01T08:20:11+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://gemes.in/JKT48-PM-Downloader/</loc>
-  <lastmod>2026-01-31T15:26:48+00:00</lastmod>
+  <lastmod>2026-02-01T08:20:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gemes.in/JKT48-Theater-Stream/</loc>
+  <lastmod>2026-02-01T08:20:10+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
