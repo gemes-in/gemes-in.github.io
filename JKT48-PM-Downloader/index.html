@@ -81,6 +81,20 @@
         .animate-scroll:hover {
             animation-play-state: paused;
         }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 2s;
+        }
     </style>
 </head>
 <body class="antialiased font-sans">
@@ -109,12 +123,17 @@
         </p>
 
         <div class="mt-12 max-w-2xl mx-auto grid grid-cols-2 gap-4 px-4">
-            <div class="glass-card rounded-3xl p-5 border-white/50 shadow-sm">
-                <div class="text-2xl md:text-3xl font-black text-gray-800 italic">80k+</div>
+            <div class="glass-card rounded-3xl p-5 border-white/50 shadow-sm transition-all duration-500 hover:scale-105 animate-float">
+                <div class="text-2xl md:text-3xl font-black text-gray-800 italic">
+                    <span id="count-files">0</span>k+
+                </div>
                 <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Files Archived</div>
             </div>
-            <div class="glass-card rounded-3xl p-5 border-white/50 shadow-sm">
-                <div class="text-2xl md:text-3xl font-black text-gray-800 italic">130GB+</div>
+            
+            <div class="glass-card rounded-3xl p-5 border-white/50 shadow-sm transition-all duration-500 hover:scale-105 animate-float-delayed">
+                <div class="text-2xl md:text-3xl font-black text-gray-800 italic">
+                    <span id="count-storage">0</span>GB+
+                </div>
                 <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Media Storage</div>
             </div>
         </div>
@@ -434,6 +453,24 @@
 
         window.addEventListener('load', handleVoucherAccess);
         window.addEventListener('hashchange', handleVoucherAccess);
+
+        function animateCount(id, target, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                document.getElementById(id).innerText = Math.floor(progress * target);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        window.addEventListener('load', () => {
+            animateCount('count-files', 80, 2000);
+            animateCount('count-storage', 130, 2500);
+        });
     </script>
 
 </body>
