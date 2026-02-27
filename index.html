@@ -15,92 +15,82 @@
     <meta name="twitter:title" content="Gemesin">
     <meta name="twitter:description" content="Gemesin - Elevate Your Idoling Experience">
     <meta name="twitter:image" content="/assets/images/gemesin.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            font-family: 'Google Sans Flex', 'Inter', sans-serif;
-            background: radial-gradient(circle at top left, #1a1a2e, #11111b, #09090b);
-            min-height: 100vh;
-            color: #ffffff;
+            background: linear-gradient(135deg, #ffe4e6 0%, #fbcfe8 100%);
+            background-attachment: fixed;
         }
-
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .glass-button {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-button:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .custom-icon {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 10px 40px rgba(244, 114, 182, 0.15);
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-start p-6">
+<body class="min-h-screen font-sans text-gray-800 antialiased selection:bg-pink-200 selection:text-pink-900">
 
-    <div class="mt-12 mb-10 text-center fade-in">
-        <div class="relative inline-block">
-            <div class="absolute inset-0 bg-pink-500/20 blur-3xl rounded-full"></div>
-            <div class="relative w-28 h-28 rounded-full mx-auto mb-5 overflow-hidden border-[0.5px] border-white/20 shadow-2xl">
-                <img src="/assets/images/gemesin.png" alt="Logo Gemesin Store" class="w-full h-full object-cover">
+    <nav class="fixed w-full z-50 glass-panel top-0 border-b-0">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-rose-500 tracking-tight">Gemesin</h1>
+        </div>
+    </nav>
+
+    <main class="pt-36 pb-16 px-6">
+        <div class="max-w-3xl mx-auto text-center space-y-8">
+            <h2 class="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-800 drop-shadow-sm">
+                Pusat Layanan <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400">Idoling Digital Kamu</span>
+            </h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
+                Tingkatkan pengalamanmu dengan berbagai alat bantu dan layanan streaming eksklusif. Semuanya dikelola dengan mudah di satu tempat.
+            </p>
+            <div class="pt-4">
+                <a href="#services" class="px-8 py-4 bg-gradient-to-r from-pink-400 to-rose-400 text-white rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-pink-300/50 hover:scale-105 transition-all transform inline-block">Jelajahi Layanan</a>
             </div>
         </div>
-        <h1 class="text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500">
-            Gemesin
-        </h1>
-        <p class="text-gray-400 mt-2 font-light tracking-wide">Elevate Your Idoling Experience</p>
-    </div>
 
-    <div class="w-full max-w-sm space-y-4 fade-in" style="animation-delay: 0.2s;">
-        
-        <a href="/JKT48-PM-Downloader/" class="glass-button flex items-center justify-between w-full py-4 px-6 rounded-2xl font-medium text-white group">
-            <span class="flex items-center gap-4">
-                <img src="https://play-lh.googleusercontent.com/Hybb58DOAQqIfGUWnuKM8A1VkZCUmf6Jsx--62R2tLhufAHjn5dL3Z7oi0lgeQ6o89zm=w480-h960-rw" alt="JKT48 PM Downloader" class="custom-icon"> 
-                <span class="group-hover:translate-x-1 transition-transform">JKT48 PM Media Downloader</span>
-            </span>
-            <svg class="w-4 h-4 opacity-30 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </a>
+        <div id="services" class="max-w-4xl mx-auto mt-28">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="glass-card rounded-[2rem] p-8 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-white/70 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-white/60">
+                        <svg class="w-8 h-8 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">JKT48 PM Media Downloader</h3>
+                    <p class="text-gray-600 mb-8 flex-grow leading-relaxed">Simpan foto, video, dan voice note dari Private Message dengan resolusi dan kualitas asli.</p>
+                    <a href="/JKT48-PM-Downloader/" class="w-full py-3 bg-white/60 hover:bg-white/90 rounded-xl font-semibold transition text-pink-600 shadow-sm border border-pink-100">Buka Aplikasi</a>
+                </div>
 
-        <a href="/JKT48-Theater-Stream/" class="glass-button flex items-center justify-between w-full py-4 px-6 rounded-2xl font-medium text-white group">
-            <span class="flex items-center gap-4">
-                <img src="https://play-lh.googleusercontent.com/vHCUNv03NNuh_aNKRCP63wUpC-HHhPXyrL_gJdFr_Xn7lgsamEAoFhG7mtz1gVBjYA=w480-h960-rw" alt="IDN Stream JKT48 Theater" class="custom-icon">
-                <span class="group-hover:translate-x-1 transition-transform">IDN Stream JKT48 Theater</span>
-            </span>
-            <svg class="w-4 h-4 opacity-30 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </a>
+                <div class="glass-card rounded-[2rem] p-8 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-white/70 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-white/60">
+                        <svg class="w-8 h-8 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Live Streaming JKT48 Theater</h3>
+                    <p class="text-gray-600 mb-8 flex-grow leading-relaxed">Akses siaran teater langsung dengan kualitas gambar tajam, stabil, dan minim latensi.</p>
+                    <a href="/JKT48-Theater-Stream/" class="w-full py-3 bg-white/60 hover:bg-white/90 rounded-xl font-semibold transition text-rose-500 shadow-sm border border-pink-100">Tonton Sekarang</a>
+                </div>
 
-    </div>
+            </div>
+        </div>
+    </main>
 
-    <footer class="mt-auto py-12 fade-in" style="animation-delay: 0.4s;">
-        <div class="glass-card px-6 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] font-semibold text-gray-500">
-            &copy; 2025 - <script>document.write(new Date().getFullYear())</script> Gemes.in
+    <footer class="mt-24 border-t border-white/50 glass-panel py-8 relative bottom-0 w-full">
+        <div class="max-w-6xl mx-auto px-6 text-center text-pink-700/80 font-medium">
+            <p>Made with ❤️ by Gemesin</p>
         </div>
     </footer>
 
