@@ -443,6 +443,12 @@
     </footer>
 
     <script>
+        const PM_STATS_API_URL = 'https://pmstats.gemes.in/';
+        const PM_STATS_FALLBACK = {
+            filesArchived: 80,
+            mediaStorage: 130
+        };
+
         function handleVoucherAccess() {
             if (window.location.hash === '#claim-voc') {
                 const claimSection = document.getElementById('claim-section');
@@ -467,9 +473,66 @@
             window.requestAnimationFrame(step);
         }
 
-        window.addEventListener('load', () => {
-            animateCount('count-files', 80, 2000);
-            animateCount('count-storage', 130, 2500);
+        function extractNumericValue(source, keys) {
+            if (!source || typeof source !== 'object') {
+                return null;
+            }
+
+            for (const key of keys) {
+                const value = source[key];
+                const numericValue = typeof value === 'string' ? Number(value.replace(/[^0-9.]/g, '')) : Number(value);
+
+                if (Number.isFinite(numericValue) && numericValue >= 0) {
+                    return numericValue;
+                }
+            }
+
+            return null;
+        }
+
+        function normalizeStats(payload) {
+            const latest = payload?.latest ?? {};
+            const raw = payload?.raw ?? {};
+
+            const fileCount = extractNumericValue(latest, ['file_count'])
+                ?? extractNumericValue(raw?.file_count_chart_latest, ['value']);
+
+            const storageGb = extractNumericValue(latest, ['storage_gb'])
+                ?? extractNumericValue(latest, ['storage_human'])
+                ?? extractNumericValue(raw?.storage_used_chart_latest, ['value']);
+
+            return {
+                filesArchived: fileCount !== null ? fileCount / 1000 : PM_STATS_FALLBACK.filesArchived,
+                mediaStorage: storageGb !== null
+                    ? (storageGb > 1000 ? storageGb / (1024 ** 3) : storageGb)
+                    : PM_STATS_FALLBACK.mediaStorage
+            };
+        }
+
+        async function loadStats() {
+            try {
+                const response = await fetch(PM_STATS_API_URL, {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Failed to load stats: ${response.status}`);
+                }
+
+                const payload = await response.json();
+                return normalizeStats(payload);
+            } catch (error) {
+                console.warn('Using fallback PM stats.', error);
+                return PM_STATS_FALLBACK;
+            }
+        }
+
+        window.addEventListener('load', async () => {
+            const stats = await loadStats();
+            animateCount('count-files', Math.floor(stats.filesArchived), 2000);
+            animateCount('count-storage', Math.floor(stats.mediaStorage), 2500);
         });
     </script>
 
