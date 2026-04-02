@@ -356,7 +356,7 @@ foreach ($member in $members) {
 
     $relatedMembers = $members | Where-Object { $_.slug -ne $member.slug } | Select-Object -First 3
     $html = New-HtmlPage `
-        -Title "Cara Download PM $($member.nickname) JKT48 | JKT48 PM Downloader" `
+        -Title "Cara Download PM $($member.nickname) JKT48. Foto, Video & VN | JKT48 PM Downloader" `
         -Description "Panduan cara download PM $($member.nickname) JKT48 untuk simpan foto HD, video, dan voice note dari JKT48 Private Message dengan lebih praktis." `
         -CanonicalUrl "$baseUrl/$($member.slug)/" `
         -OgTitle "Cara Download PM $($member.nickname) JKT48" `
