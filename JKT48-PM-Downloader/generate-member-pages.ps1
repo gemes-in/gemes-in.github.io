@@ -136,7 +136,7 @@ $(New-Nav)
             <div class="mt-6 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 items-start">
                 <div>
                     <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.08]">Cara Download PM <span class="ios-gradient-text italic">$($Member.nickname) JKT48.</span></h1>
-                    <p class="mt-6 text-sm md:text-base text-gray-500 max-w-2xl leading-relaxed">Buat fans $($Member.nickname) yang ingin menyimpan foto HD atau voice note dari Private Message, halaman ini merangkum cara aksesnya dengan lebih praktis dan cepat.</p>
+                    <p class="mt-6 text-sm md:text-base text-gray-500 max-w-2xl leading-relaxed">Buat fans $($Member.nickname) yang ingin menyimpan foto HD, video, atau voice note dari Private Message, halaman ini merangkum cara aksesnya dengan lebih praktis dan cepat.</p>
                     <div class="mt-8 flex flex-wrap gap-3">
                         <a href="https://t.me/jeketipmdl_bot" class="bg-tgBlue text-white text-sm font-bold px-6 py-3 rounded-2xl shadow-lg shadow-tgBlue/20">Buka Bot Telegram</a>
                         <a href="/JKT48-PM-Downloader/" class="bg-white border border-gray-200 text-gray-900 text-sm font-bold px-6 py-3 rounded-2xl">Lihat Halaman Utama</a>
@@ -156,7 +156,7 @@ $(New-Nav)
                 <h2 class="text-2xl font-bold text-gray-800">Cara Simpan PM $($Member.nickname) JKT48</h2>
                 <div class="mt-5 space-y-4 text-sm text-gray-500 leading-relaxed">
                     <p>Langkah pertama adalah membuka bot JKT48 PM Downloader. Dari sana kamu bisa memilih $($Member.nickname) sebagai member yang ingin diakses, lalu melanjutkan ke paket yang sesuai.</p>
-                    <p>Setelah akses aktif, kamu bisa mulai menyimpan foto dan voice note yang tersedia. Alur ini cocok untuk fans yang mencari cara download PM $($Member.nickname) JKT48 tanpa harus repot dengan screenshot atau metode manual lain.</p>
+                    <p>Setelah akses aktif, kamu bisa mulai menyimpan foto, video, dan voice note yang tersedia. Alur ini cocok untuk fans yang mencari cara download PM $($Member.nickname) JKT48 tanpa harus repot dengan screenshot atau metode manual lain.</p>
                 </div>
             </div>
         </section>
@@ -222,7 +222,7 @@ function New-MemberPageStructuredData {
                 '@type' = 'WebPage'
                 name = "Cara Download PM $($Member.nickname) JKT48"
                 url = $pageUrl
-                description = "Panduan cara download PM $($Member.nickname) JKT48 untuk simpan foto HD dan voice note dari JKT48 Private Message."
+                description = "Panduan cara download PM $($Member.nickname) JKT48 untuk simpan foto HD, video, dan voice note dari JKT48 Private Message."
                 inLanguage = 'id-ID'
             },
             @{
@@ -256,7 +256,7 @@ function New-MemberPageStructuredData {
                         name = "Bagaimana cara download PM $($Member.nickname) JKT48?"
                         acceptedAnswer = @{
                             '@type' = 'Answer'
-                            text = "Cara praktisnya adalah membuka bot JKT48 PM Downloader, memilih $($Member.nickname), mengaktifkan akses, lalu mengunduh foto dan voice note yang tersedia."
+                            text = "Cara praktisnya adalah membuka bot JKT48 PM Downloader, memilih $($Member.nickname), mengaktifkan akses, lalu mengunduh foto, video, dan voice note yang tersedia."
                         }
                     },
                     @{
@@ -269,10 +269,10 @@ function New-MemberPageStructuredData {
                     },
                     @{
                         '@type' = 'Question'
-                        name = "Apakah ada voice note di PM $($Member.nickname) JKT48?"
+                        name = "Apakah ada foto, video, dan voice note di PM $($Member.nickname) JKT48?"
                         acceptedAnswer = @{
                             '@type' = 'Answer'
-                            text = "Halaman ini dibuat untuk kebutuhan download foto dan voice note PM $($Member.nickname) JKT48 dengan alur yang lebih praktis."
+                            text = "Halaman ini dibuat untuk kebutuhan download foto, video, dan voice note PM $($Member.nickname) JKT48 dengan alur yang lebih praktis."
                         }
                     }
                 )
@@ -357,10 +357,10 @@ foreach ($member in $members) {
     $relatedMembers = $members | Where-Object { $_.slug -ne $member.slug } | Select-Object -First 3
     $html = New-HtmlPage `
         -Title "Cara Download PM $($member.nickname) JKT48 | JKT48 PM Downloader" `
-        -Description "Panduan cara download PM $($member.nickname) JKT48 untuk simpan foto HD dan voice note dari JKT48 Private Message dengan lebih praktis." `
+        -Description "Panduan cara download PM $($member.nickname) JKT48 untuk simpan foto HD, video, dan voice note dari JKT48 Private Message dengan lebih praktis." `
         -CanonicalUrl "$baseUrl/$($member.slug)/" `
         -OgTitle "Cara Download PM $($member.nickname) JKT48" `
-        -OgDescription "Simpan foto dan voice note PM $($member.nickname) JKT48 dengan langkah yang praktis lewat bot downloader." `
+        -OgDescription "Simpan foto, video, dan voice note PM $($member.nickname) JKT48 dengan langkah yang praktis lewat bot downloader." `
         -ExtraHead (New-MemberPageStructuredData -Member $member) `
         -BodyHtml (New-MemberPageBody -Member $member -RelatedMembers $relatedMembers)
 
