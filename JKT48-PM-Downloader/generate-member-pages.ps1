@@ -116,6 +116,20 @@ function New-Nav {
 "@
 }
 
+function New-LegalFooter {
+@"
+    <footer class="pb-10 px-6 text-center">
+        <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] font-semibold text-gray-500">
+            <a href="/about/" class="hover:text-iosPink transition">Tentang</a>
+            <a href="/contact/" class="hover:text-iosPink transition">Kontak</a>
+            <a href="/privacy-policy/" class="hover:text-iosPink transition">Privasi</a>
+            <a href="/terms/" class="hover:text-iosPink transition">Ketentuan</a>
+            <a href="/dmca/" class="hover:text-iosPink transition">DMCA</a>
+        </div>
+    </footer>
+"@
+}
+
 function New-MemberPageBody {
     param(
         [Parameter(Mandatory = $true)]
@@ -170,6 +184,7 @@ $(New-Nav)
             </div>
         </section>
     </main>
+$(New-LegalFooter)
 "@
 }
 
@@ -205,6 +220,7 @@ $(New-Nav)
 $memberCards
         </section>
     </main>
+$(New-LegalFooter)
 "@
 }
 
